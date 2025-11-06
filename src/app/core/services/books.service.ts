@@ -8,7 +8,7 @@ import { Book, BookResponse } from '../models/book.model';
 })
 export class BooksService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/api/books';
+  private apiUrl = 'https://biblioteca-nx3w.onrender.com/api/books';
 
   getBooks(query?: string): Observable<BookResponse> {
     let params = new HttpParams();

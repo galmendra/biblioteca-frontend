@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
 })
 export class UsersService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://biblioteca-nx3w.onrender.com/api';
+  private apiUrl = 'https://biblioteca-nx3w.onrender.com/api/users';
 
   getUsers(): Observable<{ success: boolean; users: User[] }> {
     return this.http.get<{ success: boolean; users: User[] }>(this.apiUrl, { withCredentials: true });

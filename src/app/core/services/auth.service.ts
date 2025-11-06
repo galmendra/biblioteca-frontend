@@ -10,7 +10,7 @@ import { User, AuthResponse, LoginRequest, RegisterRequest } from '../models/use
 export class AuthService {
   private http = inject(HttpClient);
   private router = inject(Router);
-  private apiUrl = 'http://localhost:3000/api/auth';
+  private apiUrl = 'https://biblioteca-nx3w.onrender.com/api/auth';
 
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();

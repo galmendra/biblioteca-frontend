@@ -8,7 +8,7 @@ import { Loan, LoanResponse, CreateLoanRequest } from '../models/loan.model';
 })
 export class LoansService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/api/loans';
+  private apiUrl = 'https://biblioteca-nx3w.onrender.com/api/loans';
 
   getAllLoans(): Observable<LoanResponse> {
     return this.http.get<LoanResponse>(this.apiUrl, { withCredentials: true });
