@@ -136,8 +136,7 @@ export class NavigationComponent {
   get isAdmin(): boolean {
     return this.authService.isAdmin;
   }
-
   logout(): void {
-    this.authService.logout().subscribe();
+    this.authService.logout();
   }
 }
