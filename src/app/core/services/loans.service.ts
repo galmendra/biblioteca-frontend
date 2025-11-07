@@ -2,13 +2,14 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Loan, LoanResponse, CreateLoanRequest } from '../models/loan.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoansService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://biblioteca-nx3w.onrender.com/api/loans';
+  private apiUrl =`${environment.apiUrl}/loans`;
 
   getAllLoans(): Observable<LoanResponse> {
     return this.http.get<LoanResponse>(this.apiUrl, { withCredentials: true });

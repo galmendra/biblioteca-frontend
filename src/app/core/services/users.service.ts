@@ -2,14 +2,15 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://biblioteca-nx3w.onrender.com/api/users';
-
+  private apiUrl = `${environment.apiUrl}/users`;
+  
   getUsers(): Observable<{ success: boolean; users: User[] }> {
     return this.http.get<{ success: boolean; users: User[] }>(this.apiUrl, { withCredentials: true });
   }

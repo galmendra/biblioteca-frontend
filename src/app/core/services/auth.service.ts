@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { User, AuthResponse, LoginRequest, RegisterRequest } from '../models/user.model';
+import { environment } from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { User, AuthResponse, LoginRequest, RegisterRequest } from '../models/use
 export class AuthService {
   private http = inject(HttpClient);
   private router = inject(Router);
-  private apiUrl = 'https://biblioteca-nx3w.onrender.com/api/auth';
+  private apiUrl = `${environment.apiUrl}/auth`;
 
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();

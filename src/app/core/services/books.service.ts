@@ -2,13 +2,14 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Book, BookResponse } from '../models/book.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://biblioteca-nx3w.onrender.com/api/books';
+  private apiUrl = `${environment.apiUrl}/books`;
 
   getBooks(query?: string): Observable<BookResponse> {
     let params = new HttpParams();
